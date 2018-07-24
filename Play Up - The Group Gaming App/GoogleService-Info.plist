@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>91322468068-hlggh5tpuckdckeff48blggpmpj4jdt5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.91322468068-hlggh5tpuckdckeff48blggpmpj4jdt5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDN2kp_MBPn3Fy6W2093htLUg6BwW6-Ta4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>91322468068</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>lambton.madt.TimePlay</string>
+	<key>PROJECT_ID</key>
+	<string>madt-95417</string>
+	<key>STORAGE_BUCKET</key>
+	<string>madt-95417.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:91322468068:ios:3c78c6cc46e3669b</string>
+	<key>DATABASE_URL</key>
+	<string>https://madt-95417.firebaseio.com</string>
+</dict>
+</plist>

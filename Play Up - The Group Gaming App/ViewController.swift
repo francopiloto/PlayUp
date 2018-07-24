@@ -10,9 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let db = GameDatabase();
+        let gameId = db.createNewGame();
+        
+        print("Game ID: \(gameId)");
+        print("Player ID: \(db.createNewPlayer(gameId: gameId, nickname: "nickname"))");
+        
+        db.watchForNewPlayers(gameId: gameId, onPlayerAdded: {
+            playerName in
+            print(playerName);
+        });
     }
 
     override func didReceiveMemoryWarning() {
