@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3669F41F2106ABE9003E06F4 /* userResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F41E2106ABE9003E06F4 /* userResults.swift */; };
+		3669F4212106AC1C003E06F4 /* serverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F4202106AC1C003E06F4 /* serverVC.swift */; };
+		3669F4232106ACD8003E06F4 /* serverQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F4222106ACD8003E06F4 /* serverQuestion.swift */; };
+		3669F4252106AD03003E06F4 /* gameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F4242106AD03003E06F4 /* gameResult.swift */; };
+		3698D0F42106257A00680A75 /* playup-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3698D0F22106257A00680A75 /* playup-bg.jpg */; };
+		3698D0F52106257A00680A75 /* playup-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3698D0F32106257A00680A75 /* playup-logo.png */; };
+		3698D0F721062D9400680A75 /* getUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3698D0F621062D9400680A75 /* getUsername.swift */; };
+		3698D0F92106333E00680A75 /* getGameID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3698D0F82106333E00680A75 /* getGameID.swift */; };
+		3698D0FB2106370600680A75 /* gameQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3698D0FA2106370600680A75 /* gameQuestions.swift */; };
+		36CEDAE021061969008142DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CEDADF21061969008142DF /* AppDelegate.swift */; };
+		36CEDAE221061969008142DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CEDAE121061969008142DF /* ViewController.swift */; };
+		36CEDAE521061969008142DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CEDAE321061969008142DF /* Main.storyboard */; };
+		36CEDAE72106197A008142DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CEDAE62106197A008142DF /* Assets.xcassets */; };
+		36CEDAEA2106197A008142DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CEDAE82106197A008142DF /* LaunchScreen.storyboard */; };
+		EA5435E0086772E93FF0D112 /* Pods_Play_Up___The_Group_Gaming_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232067F102BC5341AD5BD66B /* Pods_Play_Up___The_Group_Gaming_App.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		232067F102BC5341AD5BD66B /* Pods_Play_Up___The_Group_Gaming_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Play_Up___The_Group_Gaming_App.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3669F41E2106ABE9003E06F4 /* userResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userResults.swift; sourceTree = "<group>"; };
+		3669F4202106AC1C003E06F4 /* serverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverVC.swift; sourceTree = "<group>"; };
+		3669F4222106ACD8003E06F4 /* serverQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverQuestion.swift; sourceTree = "<group>"; };
+		3669F4242106AD03003E06F4 /* gameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameResult.swift; sourceTree = "<group>"; };
+		3698D0F22106257A00680A75 /* playup-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "playup-bg.jpg"; sourceTree = "<group>"; };
+		3698D0F32106257A00680A75 /* playup-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playup-logo.png"; sourceTree = "<group>"; };
+		3698D0F621062D9400680A75 /* getUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUsername.swift; sourceTree = "<group>"; };
+		3698D0F82106333E00680A75 /* getGameID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getGameID.swift; sourceTree = "<group>"; };
+		3698D0FA2106370600680A75 /* gameQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameQuestions.swift; sourceTree = "<group>"; };
+		36CEDADC21061969008142DF /* Play Up - The Group Gaming App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play Up - The Group Gaming App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CEDADF21061969008142DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		36CEDAE121061969008142DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36CEDAE421061969008142DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36CEDAE62106197A008142DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36CEDAE92106197A008142DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36CEDAEB2106197A008142DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C09860DCD38102BE6B97C31 /* Pods-Play Up - The Group Gaming App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Up - The Group Gaming App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Play Up - The Group Gaming App/Pods-Play Up - The Group Gaming App.debug.xcconfig"; sourceTree = "<group>"; };
+		D881E9E8961C3A2B8E5F891C /* Pods-Play Up - The Group Gaming App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Up - The Group Gaming App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Play Up - The Group Gaming App/Pods-Play Up - The Group Gaming App.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36CEDAD921061969008142DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA5435E0086772E93FF0D112 /* Pods_Play_Up___The_Group_Gaming_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36CEDAD321061969008142DF = {
+			isa = PBXGroup;
+			children = (
+				36CEDADE21061969008142DF /* Play Up - The Group Gaming App */,
+				36CEDADD21061969008142DF /* Products */,
+				C6F7A0155DC4A1A0607031D6 /* Pods */,
+				D90C9BF2A53B0A175F869469 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		36CEDADD21061969008142DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36CEDADC21061969008142DF /* Play Up - The Group Gaming App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36CEDADE21061969008142DF /* Play Up - The Group Gaming App */ = {
+			isa = PBXGroup;
+			children = (
+				36CEDADF21061969008142DF /* AppDelegate.swift */,
+				36CEDAE121061969008142DF /* ViewController.swift */,
+				36CEDAE321061969008142DF /* Main.storyboard */,
+				3669F4222106ACD8003E06F4 /* serverQuestion.swift */,
+				3669F4202106AC1C003E06F4 /* serverVC.swift */,
+				3669F41E2106ABE9003E06F4 /* userResults.swift */,
+				3698D0FA2106370600680A75 /* gameQuestions.swift */,
+				3698D0F82106333E00680A75 /* getGameID.swift */,
+				3669F4242106AD03003E06F4 /* gameResult.swift */,
+				36CEDAE62106197A008142DF /* Assets.xcassets */,
+				3698D0F22106257A00680A75 /* playup-bg.jpg */,
+				3698D0F32106257A00680A75 /* playup-logo.png */,
+				36CEDAE82106197A008142DF /* LaunchScreen.storyboard */,
+				36CEDAEB2106197A008142DF /* Info.plist */,
+				3698D0F621062D9400680A75 /* getUsername.swift */,
+			);
+			path = "Play Up - The Group Gaming App";
+			sourceTree = "<group>";
+		};
+		C6F7A0155DC4A1A0607031D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C09860DCD38102BE6B97C31 /* Pods-Play Up - The Group Gaming App.debug.xcconfig */,
+				D881E9E8961C3A2B8E5F891C /* Pods-Play Up - The Group Gaming App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D90C9BF2A53B0A175F869469 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				232067F102BC5341AD5BD66B /* Pods_Play_Up___The_Group_Gaming_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36CEDADB21061969008142DF /* Play Up - The Group Gaming App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36CEDAEE2106197A008142DF /* Build configuration list for PBXNativeTarget "Play Up - The Group Gaming App" */;
+			buildPhases = (
+				59CDB05C3E0F3E4A0AF85B16 /* [CP] Check Pods Manifest.lock */,
+				36CEDAD821061969008142DF /* Sources */,
+				36CEDAD921061969008142DF /* Frameworks */,
+				36CEDADA21061969008142DF /* Resources */,
+				E144ACBA46805A6BE20BE9D5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Play Up - The Group Gaming App";
+			productName = "Play Up - The Group Gaming App";
+			productReference = 36CEDADC21061969008142DF /* Play Up - The Group Gaming App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36CEDAD421061969008142DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Naveen Dushila";
+				TargetAttributes = {
+					36CEDADB21061969008142DF = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 36CEDAD721061969008142DF /* Build configuration list for PBXProject "Play Up - The Group Gaming App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36CEDAD321061969008142DF;
+			productRefGroup = 36CEDADD21061969008142DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36CEDADB21061969008142DF /* Play Up - The Group Gaming App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36CEDADA21061969008142DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3698D0F52106257A00680A75 /* playup-logo.png in Resources */,
+				36CEDAEA2106197A008142DF /* LaunchScreen.storyboard in Resources */,
+				3698D0F42106257A00680A75 /* playup-bg.jpg in Resources */,
+				36CEDAE72106197A008142DF /* Assets.xcassets in Resources */,
+				36CEDAE521061969008142DF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59CDB05C3E0F3E4A0AF85B16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Play Up - The Group Gaming App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E144ACBA46805A6BE20BE9D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Play Up - The Group Gaming App/Pods-Play Up - The Group Gaming App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Play Up - The Group Gaming App/Pods-Play Up - The Group Gaming App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36CEDAD821061969008142DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CEDAE221061969008142DF /* ViewController.swift in Sources */,
+				3669F4212106AC1C003E06F4 /* serverVC.swift in Sources */,
+				3698D0F92106333E00680A75 /* getGameID.swift in Sources */,
+				3669F4252106AD03003E06F4 /* gameResult.swift in Sources */,
+				3698D0F721062D9400680A75 /* getUsername.swift in Sources */,
+				3698D0FB2106370600680A75 /* gameQuestions.swift in Sources */,
+				36CEDAE021061969008142DF /* AppDelegate.swift in Sources */,
+				3669F4232106ACD8003E06F4 /* serverQuestion.swift in Sources */,
+				3669F41F2106ABE9003E06F4 /* userResults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		36CEDAE321061969008142DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36CEDAE421061969008142DF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		36CEDAE82106197A008142DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36CEDAE92106197A008142DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36CEDAEC2106197A008142DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36CEDAED2106197A008142DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36CEDAEF2106197A008142DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C09860DCD38102BE6B97C31 /* Pods-Play Up - The Group Gaming App.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Play Up - The Group Gaming App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lambton.madt.TimePlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36CEDAF02106197A008142DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D881E9E8961C3A2B8E5F891C /* Pods-Play Up - The Group Gaming App.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Play Up - The Group Gaming App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lambton.madt.TimePlay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36CEDAD721061969008142DF /* Build configuration list for PBXProject "Play Up - The Group Gaming App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CEDAEC2106197A008142DF /* Debug */,
+				36CEDAED2106197A008142DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36CEDAEE2106197A008142DF /* Build configuration list for PBXNativeTarget "Play Up - The Group Gaming App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36CEDAEF2106197A008142DF /* Debug */,
+				36CEDAF02106197A008142DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36CEDAD421061969008142DF /* Project object */;
+}

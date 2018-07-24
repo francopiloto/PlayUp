@@ -1,0 +1,6 @@
+framework module Pods_Play_Up___The_Group_Gaming_App {
+  umbrella header "Pods-Play Up - The Group Gaming App-umbrella.h"
+
+  export *
+  module * { export * }
+}
