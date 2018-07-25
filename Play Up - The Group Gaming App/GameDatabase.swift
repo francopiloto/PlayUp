@@ -94,6 +94,33 @@ class GameDatabase
 /* --------------------------------------------------------------------------------------------- */
     
     /**
+     * Get information about all players
+     */
+    func getPlayers(gameId:String, onComplete:@escaping ([Player])->Void)
+    {
+        let playersNode = db.child("games").child(gameId).child("players");
+        
+        playersNode.observeSingleEvent(of: DataEventType.value, with:
+        {
+            players in
+            
+            var playersArray : [Player] = [];
+            let enumerator = players.children;
+            
+            while let player = enumerator.nextObject() as? DataSnapshot
+            {
+                playersArray.append(Player(name: player.childSnapshot(forPath: "name").value as! String,
+                                           scores: player.childSnapshot(forPath: "scores").value as! Int,
+                                           position: player.childSnapshot(forPath: "position").value as! Int));
+            }
+            
+            onComplete(playersArray);
+        });
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    /**
      * Update information about an specific player
      */
     func updatePlayer(gameId:String, playerId:String, player:Player)
@@ -113,7 +140,7 @@ class GameDatabase
      */
     func getQuestion(questionNumber:UInt, onComplete:@escaping (Question)->Void)
     {
-        let questionNode = db.child("questions").child("q\(questionNumber+1)");
+        let questionNode = db.child("questions").child("q\(questionNumber)");
         
         questionNode.observeSingleEvent(of: DataEventType.value, with:
         {
@@ -145,6 +172,12 @@ class GameDatabase
             questions in
             onComplete(questions.childrenCount);
         });
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    func setStatus(gameId:String, status:String) {
+        db.child("games").child(gameId).child("status").setValue(status);
     }
     
 /* --------------------------------------------------------------------------------------------- */

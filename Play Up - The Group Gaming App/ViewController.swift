@@ -62,6 +62,21 @@ class ViewController: UIViewController {
                     print("Options: \(question.options)");
                     print("Answer: \(question.answer)");
                 });
+                
+                db.setStatus(gameId: gameId, status: "q\(i)");
+            }
+        });
+        
+        db.getPlayers(gameId: gameId, onComplete:
+        {
+            players in
+            
+            for player in players
+            {
+                print("player info:");
+                print("Name: \(player.name)");
+                print("Scores: \(player.scores)");
+                print("Position: \(player.position)");
             }
         });
     }
