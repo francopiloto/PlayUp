@@ -25,6 +25,29 @@ class GameDatabase
 /* --------------------------------------------------------------------------------------------- */
     
     /**
+     * Check if the game specified by gameId exists and is not done yet
+     */
+    func canJoinGame(gameId:String, onComplete:@escaping (Bool)->Void)
+    {
+        db.child("games").observeSingleEvent(of: .value, with:
+        {
+            games in
+            
+            var canJoin = false;
+            
+            if (games.hasChild(gameId))
+            {
+                let gameStatus = games.childSnapshot(forPath: gameId).childSnapshot(forPath: "status");
+                canJoin = (gameStatus.value as! String) != "done";
+            }
+            
+            onComplete(canJoin);
+        });
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    /**
      * Create a new player node in the database inside the <gameId>/players
      * and return the player ID
      */

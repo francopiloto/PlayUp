@@ -79,6 +79,18 @@ class ViewController: UIViewController {
                 print("Position: \(player.position)");
             }
         });
+        
+        db.canJoinGame(gameId: "121259", onComplete:
+        {
+            canJoin in
+            
+            if (canJoin) {
+                print("------------------> Yes, you can join us!");
+            }
+            else {
+                print("------------------> There is no active game with the given id");
+            }
+        });
     }
 
     override func didReceiveMemoryWarning() {
