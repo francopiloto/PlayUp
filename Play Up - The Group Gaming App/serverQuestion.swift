@@ -10,9 +10,11 @@ import UIKit
 
 class serverQuestion: UIViewController {
 
+    @IBOutlet weak var gameID: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        gameID.text = globalVars.gameIDE
         // Do any additional setup after loading the view.
     }
 

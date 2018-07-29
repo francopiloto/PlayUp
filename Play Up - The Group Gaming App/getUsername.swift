@@ -10,6 +10,7 @@ import UIKit
 
 class getUsername: UIViewController {
 
+    
     @IBOutlet weak var username: UITextField!
     
     override func viewDidLoad() {
@@ -26,7 +27,8 @@ class getUsername: UIViewController {
     //-- Segue functions
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if (username.text == "")
+        let user = username.text!
+        if (user == "")
         {
             let infoAlert = UIAlertController(title: "Username Can't Be Empty!", message: "Enter Username Properly.", preferredStyle: .alert)
             
@@ -36,7 +38,10 @@ class getUsername: UIViewController {
             return false
         }
         else {
+           
+            globalVars.username = user
             return true
+            
         }
         
     }

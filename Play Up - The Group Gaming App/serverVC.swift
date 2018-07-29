@@ -10,9 +10,18 @@ import UIKit
 
 class serverVC: UIViewController {
 
+    @IBOutlet weak var gameID: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+          let db = GameDatabase()
+        let gameId = db.createNewGame()
+        
+        globalVars.gameIDE = gameId
+        
+        gameID.text = gameId
         // Do any additional setup after loading the view.
     }
 

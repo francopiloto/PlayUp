@@ -10,6 +10,8 @@ import UIKit
 
 class getGameID: UIViewController {
 
+    let db = GameDatabase()
+    
     var username: String = ""
 
     @IBOutlet weak var helloUser: UILabel!
@@ -18,7 +20,7 @@ class getGameID: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        helloUser.text = "Hello " + self.username + "! Let's Play!"
+        helloUser.text = "Hello " + globalVars.username + "! Let's Play!"
         // Do any additional setup after loading the view.
     }
 
@@ -49,7 +51,12 @@ class getGameID: UIViewController {
         }
         else
         {
-        return true
+            globalVars.gameID = gID
+            let playerId = db.createNewPlayer(gameId: gID, nickname:globalVars.username );
+            
+            globalVars.playerID = playerId
+            
+            return true
         }
 
     }
@@ -63,22 +70,5 @@ class getGameID: UIViewController {
         
     }
     
-    @IBAction func startGame(_ sender: UIButton) {
-        
-  
-        
-    }
-    /*
-    func displayWelcomeScreen () {
-        
-        let welcomeSB: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let welcomeVC = welcomeSB.instantiateViewController(withIdentifier: "gameQuestions") as! gameQuestions
-        
-        welcomeVC.gameID = gameID.text!
-        welcomeVC.username = username
-        print("WelcomeVC")
-        navigationController?.pushViewController(welcomeVC, animated: true)
-        
-    }
-*/
+
 }

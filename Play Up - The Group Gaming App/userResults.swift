@@ -10,9 +10,25 @@ import UIKit
 
 class userResults: UIViewController {
 
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var gameID: UILabel!
+    
+    @IBOutlet weak var scores: UILabel!
+    
+    @IBOutlet weak var resultPosition: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userName.text = globalVars.username
+        
+        gameID.text = globalVars.gameID
+        
+        scores.text = String(globalVars.scores)
+        
+        
         // Do any additional setup after loading the view.
     }
 

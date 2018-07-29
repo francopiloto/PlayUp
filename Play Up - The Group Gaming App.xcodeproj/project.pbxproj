@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364A9CC7210E2F0D00166EDB /* globalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A9CC6210E2F0D00166EDB /* globalVars.swift */; };
 		3669F41F2106ABE9003E06F4 /* userResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F41E2106ABE9003E06F4 /* userResults.swift */; };
 		3669F4212106AC1C003E06F4 /* serverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F4202106AC1C003E06F4 /* serverVC.swift */; };
 		3669F4232106ACD8003E06F4 /* serverQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F4222106ACD8003E06F4 /* serverQuestion.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		232067F102BC5341AD5BD66B /* Pods_Play_Up___The_Group_Gaming_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Play_Up___The_Group_Gaming_App.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		364A9CC6210E2F0D00166EDB /* globalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalVars.swift; sourceTree = "<group>"; };
 		3669F41E2106ABE9003E06F4 /* userResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userResults.swift; sourceTree = "<group>"; };
 		3669F4202106AC1C003E06F4 /* serverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverVC.swift; sourceTree = "<group>"; };
 		3669F4222106ACD8003E06F4 /* serverQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverQuestion.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				3698D0F32106257A00680A75 /* playup-logo.png */,
 				36CEDAE82106197A008142DF /* LaunchScreen.storyboard */,
 				36CEDAEB2106197A008142DF /* Info.plist */,
+				364A9CC6210E2F0D00166EDB /* globalVars.swift */,
 				3698D0F621062D9400680A75 /* getUsername.swift */,
 				9D9C92BB21079B73002723DE /* GameDatabase.swift */,
 			);
@@ -246,6 +249,7 @@
 				3698D0F92106333E00680A75 /* getGameID.swift in Sources */,
 				3669F4252106AD03003E06F4 /* gameResult.swift in Sources */,
 				3698D0F721062D9400680A75 /* getUsername.swift in Sources */,
+				364A9CC7210E2F0D00166EDB /* globalVars.swift in Sources */,
 				3698D0FB2106370600680A75 /* gameQuestions.swift in Sources */,
 				36CEDAE021061969008142DF /* AppDelegate.swift in Sources */,
 				3669F4232106ACD8003E06F4 /* serverQuestion.swift in Sources */,
