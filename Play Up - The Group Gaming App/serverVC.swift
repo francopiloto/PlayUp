@@ -21,7 +21,7 @@ class serverVC: UIViewController {
         
         globalVars.gameIDE = gameId
         
-        gameID.text = gameId
+        gameID.text = "Game ID: " + gameId
         // Do any additional setup after loading the view.
     }
 

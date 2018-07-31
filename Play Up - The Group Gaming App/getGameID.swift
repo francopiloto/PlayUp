@@ -34,6 +34,7 @@ class getGameID: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let gID = gameID.text!
+        var chk = true
         
         print("GID Value:")
         print(gID)
@@ -47,18 +48,47 @@ class getGameID: UIViewController {
             
             self.present(infoAlert, animated: true, completion: nil)
             
-            return false
-        }
-        else
+            return chk
+            
+        }else
         {
-            globalVars.gameID = gID
-            let playerId = db.createNewPlayer(gameId: gID, nickname:globalVars.username );
             
-            globalVars.playerID = playerId
-            
-            return true
+            db.canJoinGame(gameId: gID, onComplete:
+                {
+                    canJoin in
+                    
+                    if (canJoin)
+                    {
+                        globalVars.gameID = gID
+                        
+                        let playerId = self.db.createNewPlayer(gameId: gID, nickname:globalVars.username );
+                        
+                        globalVars.playerID = playerId
+                        
+                        
+                        chk = true
+                        print("chk true done:")
+                        print(chk)
+    
+                    }
+                    else {
+                        let infoAlert = UIAlertController(title: "Game ID is not valid!", message: "Enter Game ID Properly.", preferredStyle: .alert)
+                        
+                        infoAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        
+                        self.present(infoAlert, animated: true, completion: nil)
+                        
+                        chk = false
+                        print("chk false done:")
+                        print(chk)
+                    }
+                    
+            })
+            print("final print")
+            print(chk)
+            return chk
         }
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
