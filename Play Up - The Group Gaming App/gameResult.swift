@@ -30,6 +30,7 @@ class gameResult: UIViewController
                 position += 1;
                 
                 // TODO: build UI player rank here
+                
             }
             
             self.db.setStatus("done");

@@ -26,23 +26,23 @@ class gameQuestions: UIViewController
         usernameLbl.text = db.playerName;
         gameIDLbl.text = db.gameId;
         
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer),
-                                          userInfo: nil, repeats: true);
-        
         db.watchForGameStatusChange(onStatusChanged:
         {
             status in
-            
+           
             if status.hasPrefix("q")
             {
                 let index = status.index(status.startIndex, offsetBy: 1);
                 self.setupQuestion(number: UInt(String(status[index]))!);
             }
-            else if status == "done"
+            else if status == "ready" || status == "done"
             {
-                self.timer?.invalidate();
-                self.db.stopWatchForStatusChange();
-                Utils.goTo(controller: self, viewId: "userResults");
+                if let timer = self.timer {
+                    timer.invalidate();
+                }
+                
+                self.db.stopWatchingForStatusChange();
+                Utils.goTo(controller: self, viewId: status == "ready" ? "playerReady" : "userResults");
             }
         });
     }
@@ -63,6 +63,8 @@ class gameQuestions: UIViewController
                 self.db.updatePlayer(player);
             });
         }
+        
+        // TODO disable options
     }
     
     @objc private func updateTimer() {
@@ -76,6 +78,9 @@ class gameQuestions: UIViewController
             question in
             self.correctAnswer = question.answer;
             self.seconds = GameDatabase.QUESTION_TIME_SECS;
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer),
+                                              userInfo: nil, repeats: true);
         });
     }
 }

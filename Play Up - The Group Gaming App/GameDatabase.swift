@@ -4,10 +4,14 @@ import Firebase
 class GameDatabase
 {
     static let QUESTION_TIME_SECS : TimeInterval = 10;
+    static let READY_TIME_SECS : TimeInterval = 3;
     
     var gameId = "";
     var playerId = "";
     var playerName = "";
+    
+    var numberOfQuestions : UInt = 0;
+    var currentQuestion : UInt = 0;
     
     private static var instance : GameDatabase!;
     
@@ -97,8 +101,10 @@ class GameDatabase
     func watchForNewPlayers(onPlayerAdded:@escaping (String)->Void)
     {
         let players = db.child("games").child(gameId).child("players");
-            
-        players.observe(DataEventType.childAdded, with:
+        
+        stopWatchingForNewPlayers();
+        
+        playersHandle = players.observe(DataEventType.childAdded, with:
         {
             player in
             onPlayerAdded(player.childSnapshot(forPath: "name").value as! String);
@@ -107,10 +113,13 @@ class GameDatabase
     
 /* --------------------------------------------------------------------------------------------- */
     
-    func stopWatchForNewPlayers()
+    func stopWatchingForNewPlayers()
     {
-        if let handle = playersHandle {
-            db.removeObserver(withHandle: handle);
+        if playersHandle != nil
+        {
+            let players = db.child("games").child(gameId).child("players");
+            players.removeObserver(withHandle: playersHandle!);
+            playersHandle = nil;
         }
     }
     
@@ -122,10 +131,10 @@ class GameDatabase
      */
     func watchForGameStatusChange(onStatusChanged:@escaping (String)->Void)
     {
-        stopWatchForStatusChange();
+        stopWatchingForStatusChange();
         let status = db.child("games").child(gameId).child("status");
         
-        status.observe(DataEventType.value, with:
+        statusHandle = status.observe(DataEventType.value, with:
         {
             status in
             onStatusChanged(status.value as! String);
@@ -134,10 +143,13 @@ class GameDatabase
     
 /* --------------------------------------------------------------------------------------------- */
     
-    func stopWatchForStatusChange()
+    func stopWatchingForStatusChange()
     {
-        if let handle = statusHandle {
-            db.removeObserver(withHandle: handle);
+        if statusHandle != nil
+        {
+            let status = db.child("games").child(gameId).child("status");
+            status.removeObserver(withHandle: statusHandle!);
+            statusHandle = nil;
         }
     }
     

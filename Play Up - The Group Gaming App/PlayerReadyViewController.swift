@@ -1,14 +1,14 @@
 //
-//  WaitingViewController.swift
+//  PlayerReadyViewController.swift
 //  Play Up - The Group Gaming App
 //
-//  Created by franco on 2018-07-31.
+//  Created by franco on 2018-08-01.
 //  Copyright © 2018 Naveen Dushila. All rights reserved.
 //
 
 import UIKit
 
-class WaitingViewController: UIViewController
+class PlayerReadyViewController: UIViewController
 {
     private let db = GameDatabase.getInstance();
     
@@ -20,14 +20,14 @@ class WaitingViewController: UIViewController
         {
             status in
             
-            if (status == "ready")
+            if (status != "ready")
             {
                 self.db.stopWatchingForStatusChange();
-                Utils.goTo(controller: self, viewId: "playerReady");
+                Utils.goTo(controller: self, viewId: "gameQuestions");
             }
         });
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
     }
