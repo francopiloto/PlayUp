@@ -15,28 +15,23 @@ class serverQuestion: UIViewController
     @IBOutlet weak var timeRemains: UILabel!
     
     private let db = GameDatabase.getInstance();
-    private var numberOfQuestions : UInt = 0;
-    private var currentQuestion : UInt = 0;
     private var timer : Timer?;
     private var seconds : TimeInterval = -1;
     
     override func viewDidLoad()
     {
         super.viewDidLoad();
-        
         gameID.text = db.gameId;
         
-        db.getNumberOfQuestions(onComplete:
+        if (db.currentQuestion < db.numberOfQuestions)
         {
-            count in
-            
-            self.numberOfQuestions = count;
-            self.currentQuestion = 0;
-            
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer),
-                                              userInfo: nil, repeats: true);
-            self.nextQuestion();
-        });
+            nextQuestion();
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer),
+                                         userInfo: nil, repeats: true);
+        }
+        else {
+            Utils.goTo(controller: self, viewId: "gameResult");
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,32 +42,28 @@ class serverQuestion: UIViewController
     {
         seconds -= 1;
         
-        if (seconds > 0) {
+        if (seconds > 0)
+        {
+            // Update UI
             timeRemains.text = String(format:"00:%02i", Int(seconds));
         }
-        else if (seconds == 0) {
-            nextQuestion();
+        else if (seconds == 0)
+        {
+            timer?.invalidate();
+            Utils.goTo(controller: self, viewId: db.currentQuestion < db.numberOfQuestions ? "serverReady" : "gameResult");
         }
     }
     
     private func nextQuestion()
     {
-        if (currentQuestion < numberOfQuestions)
+        db.getQuestion(questionNumber: db.currentQuestion, onComplete:
         {
-            db.getQuestion(questionNumber: currentQuestion, onComplete:
-            {
-                question in
-                self.updateQuestion(question);
-                self.db.setStatus("q\(self.currentQuestion)");
-                
-                self.currentQuestion += 1;
-            });
-        }
-        else
-        {
-            timer?.invalidate();            
-            Utils.goTo(controller: self, viewId: "gameResult");
-        }
+            question in
+            self.updateQuestion(question);
+            self.db.setStatus("q\(self.db.currentQuestion)");
+            
+            self.db.currentQuestion += 1;
+        });
     }
     
     private func updateQuestion(_ question:Question)

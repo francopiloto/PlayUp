@@ -38,13 +38,19 @@ class serverVC: UIViewController
         super.didReceiveMemoryWarning();
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return true;
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    @IBAction func startButtonPressed(_ sender: UIButton)
     {
-        print("Starting the game:", db.gameId);
-        db.stopWatchForNewPlayers();
+        db.stopWatchingForNewPlayers();
+        
+        db.getNumberOfQuestions(onComplete:
+        {
+            count in
+            
+            self.db.numberOfQuestions = count;
+            self.db.currentQuestion = 0;
+            
+            print("Starting the game:", self.db.gameId);
+            Utils.goTo(controller: self, viewId: "serverReady");
+        });
     }
 }

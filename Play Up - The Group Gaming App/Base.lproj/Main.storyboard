@@ -36,7 +36,7 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ce4-WR-rMP" kind="show" id="Sbz-pt-XsY"/>
+                                    <action selector="startButtonPressed:" destination="Wy4-x4-J09" eventType="touchUpInside" id="Xpz-PJ-hpz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GAME ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9M-OC-jPB">
@@ -64,6 +64,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWz-yx-yT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="-539.28035982008998"/>
+        </scene>
+        <!--Server Ready View Controller-->
+        <scene sceneID="nXh-Yf-zLx">
+            <objects>
+                <viewController storyboardIdentifier="serverReady" id="2Jx-f4-TYx" customClass="ServerReadyViewController" customModule="Play_Up___The_Group_Gaming_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yO8-Ga-4mk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Be Ready!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1C-Wf-XK9">
+                                <rect key="frame" x="16" y="199" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kwt-Ss-VdZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKl-AB-msy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2745" y="-558"/>
         </scene>
         <!--Server Question-->
         <scene sceneID="HHi-iI-Ifs">
@@ -94,9 +117,6 @@
                                 <state key="normal" title="A">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CBw-RS-ljj" kind="show" id="XUk-ED-ih3"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrL-wJ-zqW">
                                 <rect key="frame" x="222" y="374" width="100" height="100"/>
@@ -106,9 +126,6 @@
                                 <state key="normal" title="B">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CBw-RS-ljj" kind="show" id="DZH-Kv-j45"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-Vu-KEK">
                                 <rect key="frame" x="53" y="517" width="100" height="100"/>
@@ -118,9 +135,6 @@
                                 <state key="normal" title="C">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CBw-RS-ljj" kind="show" id="b3T-DS-L3f"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhe-Gf-YnC">
                                 <rect key="frame" x="222" y="517" width="100" height="100"/>
@@ -130,9 +144,6 @@
                                 <state key="normal" title="D">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="CBw-RS-ljj" kind="show" id="MEs-22-GRL"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:09" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVc-Ka-S9Y">
                                 <rect key="frame" x="161" y="305" width="52" height="27"/>
@@ -167,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4O-Q5-8NI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2694" y="-555"/>
+            <point key="canvasLocation" x="3487" y="-557"/>
         </scene>
         <!--Game Result-->
         <scene sceneID="yVp-MC-e7b">
@@ -212,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIj-NE-PSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3393" y="-555"/>
+            <point key="canvasLocation" x="4186" y="-557"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -398,6 +409,29 @@
             </objects>
             <point key="canvasLocation" x="2049" y="117"/>
         </scene>
+        <!--Player Ready View Controller-->
+        <scene sceneID="Six-2C-VQs">
+            <objects>
+                <viewController storyboardIdentifier="playerReady" id="gjG-lW-SOq" customClass="PlayerReadyViewController" customModule="Play_Up___The_Group_Gaming_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jMc-el-s2s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Be Ready!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abI-2S-48d">
+                                <rect key="frame" x="16" y="202" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Snd-Gg-9Ak"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ib-Sh-Q4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2745" y="117"/>
+        </scene>
         <!--Game Questions-->
         <scene sceneID="BYS-z6-txM">
             <objects>
@@ -512,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twz-qp-j5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2694" y="118"/>
+            <point key="canvasLocation" x="3486" y="118"/>
         </scene>
         <!--User Results-->
         <scene sceneID="Fmz-u0-XLZ">
@@ -612,7 +646,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cN-Mb-e2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3393" y="115"/>
+            <point key="canvasLocation" x="4186" y="113"/>
         </scene>
     </scenes>
     <resources>
@@ -622,6 +656,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="bDm-g2-1nS"/>
         <segue reference="76u-Ne-Jsl"/>
-        <segue reference="b3T-DS-L3f"/>
     </inferredMetricsTieBreakers>
 </document>
