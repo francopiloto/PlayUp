@@ -42,7 +42,7 @@ class gameQuestions: UIViewController
                 }
                 
                 self.db.stopWatchingForStatusChange();
-                //Utils.goTo(controller: self, viewId: status == "ready" ? "playerReady" : "userResults");
+                Utils.goTo(controller: self, viewId: status == "ready" ? "playerReady" : "userResults");
             }
         });
     }
