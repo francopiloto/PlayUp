@@ -14,6 +14,15 @@ class getGameID: UIViewController
 
     @IBOutlet weak var helloUser: UILabel!
     @IBOutlet weak var gameID: UITextField!
+
+        @IBAction func backButton(_ sender: UIButton) {
+            
+            let welcomeSB: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let welcomeVC = welcomeSB.instantiateViewController(withIdentifier: "getUsername")
+            self.present(welcomeVC, animated: true)
+            print("Page Move")
+        }
+
     
     override func viewDidLoad()
     {

@@ -12,6 +12,13 @@ class getUsername: UIViewController
 {
     @IBOutlet weak var username: UITextField!
     
+    @IBAction func backButton(_ sender: UIButton) {
+       
+        let welcomeSB: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let welcomeVC = welcomeSB.instantiateViewController(withIdentifier: "HomePage")
+        self.present(welcomeVC, animated: true)
+        print("Page Move")
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
     }

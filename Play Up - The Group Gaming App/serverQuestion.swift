@@ -13,6 +13,7 @@ class serverQuestion: UIViewController
     @IBOutlet weak var gameID: UILabel!
     @IBOutlet weak var questionDisplay: UITextView!    
     @IBOutlet weak var timeRemains: UILabel!
+    @IBOutlet weak var timerProgress: UIProgressView!
     
     private let db = GameDatabase.getInstance();
     private var numberOfQuestions : UInt = 0;
@@ -49,8 +50,15 @@ class serverQuestion: UIViewController
         
         if (seconds > 0) {
             timeRemains.text = String(format:"00:%02i", Int(seconds));
-        }
+            
+            print("Seconds " , seconds)
+            let timeProgress = Float(Float((10 - Float(seconds))/10))
+            print("Progress Sec " , timeProgress)
+            
+            timerProgress.progress = timeProgress
+         }
         else if (seconds == 0) {
+            timerProgress.progress = 1
             nextQuestion();
         }
     }
