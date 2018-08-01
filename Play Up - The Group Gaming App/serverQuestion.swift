@@ -8,30 +8,88 @@
 
 import UIKit
 
-class serverQuestion: UIViewController {
-
+class serverQuestion: UIViewController
+{
     @IBOutlet weak var gameID: UILabel!
+    @IBOutlet weak var questionDisplay: UITextView!    
+    @IBOutlet weak var timeRemains: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        gameID.text = globalVars.gameIDE
-        // Do any additional setup after loading the view.
+    private let db = GameDatabase.getInstance();
+    private var numberOfQuestions : UInt = 0;
+    private var currentQuestion : UInt = 0;
+    private var timer : Timer?;
+    private var seconds : TimeInterval = -1;
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad();
+        
+        gameID.text = db.gameId;
+        
+        db.getNumberOfQuestions(onComplete:
+        {
+            count in
+            
+            self.numberOfQuestions = count;
+            self.currentQuestion = 0;
+            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer),
+                                              userInfo: nil, repeats: true);
+            self.nextQuestion();
+        });
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning();
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc private func updateTimer()
+    {
+        seconds -= 1;
+        
+        if (seconds > 0) {
+            timeRemains.text = String(format:"00:%02i", Int(seconds));
+        }
+        else if (seconds == 0) {
+            nextQuestion();
+        }
     }
-    */
-
+    
+    private func nextQuestion()
+    {
+        if (currentQuestion < numberOfQuestions)
+        {
+            db.getQuestion(questionNumber: currentQuestion, onComplete:
+            {
+                question in
+                self.updateQuestion(question);
+                self.db.setStatus("q\(self.currentQuestion)");
+                
+                self.currentQuestion += 1;
+            });
+        }
+        else
+        {
+            db.setStatus("done");
+            timer?.invalidate();
+            
+            Utils.goTo(controller: self, viewId: "gameResult");
+        }
+    }
+    
+    private func updateQuestion(_ question:Question)
+    {
+        questionDisplay.text = question.title
+        questionDisplay.insertText("\n A) ")
+        questionDisplay.insertText(question.options[0])
+        questionDisplay.insertText("\n B) ")
+        questionDisplay.insertText(question.options[1])
+        questionDisplay.insertText("\n C) ")
+        questionDisplay.insertText(question.options[2])
+        questionDisplay.insertText("\n D) ")
+        questionDisplay.insertText(question.options[3])
+        
+        seconds = GameDatabase.QUESTION_TIME_SECS;
+        timeRemains.text = String(format:"00:%02i", Int(seconds));
+    }
 }

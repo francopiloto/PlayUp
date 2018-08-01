@@ -3,14 +3,41 @@ import Firebase
 
 class GameDatabase
 {
-    private var db = Database.database().reference();
+    static let QUESTION_TIME_SECS : TimeInterval = 10;
+    
+    var gameId = "";
+    var playerId = "";
+    var playerName = "";
+    
+    private static var instance : GameDatabase!;
+    
+    private var db : DatabaseReference;
+    private var statusHandle : DatabaseHandle?;
+    private var playersHandle : DatabaseHandle?;
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    static func getInstance() -> GameDatabase
+    {
+        if (instance == nil) {
+            instance = GameDatabase();
+        }
+        
+        return instance;
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    private init() {
+        db = Database.database().reference();
+    }
     
 /* --------------------------------------------------------------------------------------------- */
     
     /**
-     * Create a new game node in the database and return the game ID
+     * Create a new game node in the database and store the game ID
      */
-    func createNewGame() -> String
+    func createNewGame()
     {
         let games = db.child("games");
         
@@ -19,7 +46,7 @@ class GameDatabase
         
         game.child("status").setValue("waiting");
         
-        return game.key;
+        self.gameId = game.key;
     }
     
 /* --------------------------------------------------------------------------------------------- */
@@ -32,7 +59,6 @@ class GameDatabase
         db.child("games").observeSingleEvent(of: .value, with:
         {
             games in
-            
             var canJoin = false;
             
             if (games.hasChild(gameId))
@@ -49,9 +75,9 @@ class GameDatabase
     
     /**
      * Create a new player node in the database inside the <gameId>/players
-     * and return the player ID
+     * and store the player ID
      */
-    func createNewPlayer(gameId:String, nickname:String) -> String
+    func createNewPlayer(gameId:String, nickname:String)
     {
         let player = db.child("games").child(gameId).child("players").childByAutoId();
             
@@ -59,16 +85,16 @@ class GameDatabase
         player.child("scores").setValue(0);
         player.child("position").setValue(1);
             
-        return player.key;
+        self.playerId = player.key;
     }
     
 /* --------------------------------------------------------------------------------------------- */
     
     /**
-     * Listen for player addition in the database for a specific gameId
-     * and call onPlayerAdded function passing the player name as argument
+     * Listen for player addition in the database for the current gameId
+     * and call onPlayerAdded function passing the player's name as argument
      */
-    func watchForNewPlayers(gameId:String, onPlayerAdded:@escaping (String)->Void)
+    func watchForNewPlayers(onPlayerAdded:@escaping (String)->Void)
     {
         let players = db.child("games").child(gameId).child("players");
             
@@ -81,12 +107,25 @@ class GameDatabase
     
 /* --------------------------------------------------------------------------------------------- */
     
-    /**
-     * Listen for changes in the game status for a specific gameId
-     * and call onStatusChanged function passing the new status as argument
-     */
-    func watchForGameStatusChange(gameId:String, onStatusChanged:@escaping (String)->Void)
+    func stopWatchForNewPlayers()
     {
+        if let handle = playersHandle {
+            db.removeObserver(withHandle: handle);
+        }
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    /**
+     * Listen for changes in the current game status and call onStatusChanged function
+     * passing the new status as argument
+     */
+    func watchForGameStatusChange(onStatusChanged:@escaping (String)->Void)
+    {
+        if let handle = statusHandle {
+            db.removeObserver(withHandle: handle);
+        }
+        
         let status = db.child("games").child(gameId).child("status");
         
         status.observe(DataEventType.value, with:
@@ -99,9 +138,9 @@ class GameDatabase
 /* --------------------------------------------------------------------------------------------- */
     
     /**
-     * Get information about an specific player
+     * Get information about current player
      */
-    func getPlayer(gameId:String, playerId:String, onComplete:@escaping (Player)->Void)
+    func getPlayer(onComplete:@escaping (Player)->Void)
     {
         let playerNode = db.child("games").child(gameId).child("players").child(playerId);
         
@@ -146,7 +185,7 @@ class GameDatabase
     /**
      * Update information about an specific player
      */
-    func updatePlayer(gameId:String, playerId:String, player:Player)
+    func updatePlayer(playerId:String, player:Player)
     {
         let playerNode = db.child("games").child(gameId).child("players").child(playerId);
         
@@ -199,7 +238,7 @@ class GameDatabase
     
 /* --------------------------------------------------------------------------------------------- */
     
-    func setStatus(gameId:String, status:String) {
+    func setStatus(_ status:String) {
         db.child("games").child(gameId).child("status").setValue(status);
     }
     

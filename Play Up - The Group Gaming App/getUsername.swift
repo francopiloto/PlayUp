@@ -8,26 +8,23 @@
 
 import UIKit
 
-class getUsername: UIViewController {
-
-    
+class getUsername: UIViewController
+{
     @IBOutlet weak var username: UITextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        super.viewDidLoad();
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning();
     }
     
-    //-- Segue functions
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    //-- Segue functions    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
+    {
         let user = username.text!
+        
         if (user == "")
         {
             let infoAlert = UIAlertController(title: "Username Can't Be Empty!", message: "Enter Username Properly.", preferredStyle: .alert)
@@ -37,21 +34,11 @@ class getUsername: UIViewController {
             self.present(infoAlert, animated: true, completion: nil)
             return false
         }
-        else {
-           
-            globalVars.username = user
+        else
+        {
+            GameDatabase.getInstance().playerName = user;
+            print("User name acquired: \(user)");
             return true
-            
         }
-        
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! getGameID
-        
-        // send the data
-        dest.username = username.text!
-    }
-
 }

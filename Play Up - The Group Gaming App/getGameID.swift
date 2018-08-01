@@ -8,97 +8,55 @@
 
 import UIKit
 
-class getGameID: UIViewController {
-
-    let db = GameDatabase()
-    
-    var username: String = ""
+class getGameID: UIViewController
+{
+    private let db = GameDatabase.getInstance();
 
     @IBOutlet weak var helloUser: UILabel!
-    
     @IBOutlet weak var gameID: UITextField!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        helloUser.text = "Hello " + globalVars.username + "! Let's Play!"
-        // Do any additional setup after loading the view.
+        helloUser.text = "Hello " + db.playerName + "! Let's Play!";
     }
-
+    
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning();
     }
-    
 
-    //-- Segue functions
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let gID = gameID.text!
-        var chk = true
+    @IBAction func goButtonPressed(_ sender: UIButton)
+    {
+        let gameId = self.gameID.text!
         
-        print("GID Value:")
-        print(gID)
-        
-        if(gID == "")
+        if (gameId == "")
         {
-            print("GID is Empty")
+            print("gameId is Empty")
             let infoAlert = UIAlertController(title: "Game ID Can't Be Empty!", message: "Enter Game ID Properly.", preferredStyle: .alert)
             
-            infoAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            
+            infoAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil));
             self.present(infoAlert, animated: true, completion: nil)
-            
-            return chk
-            
-        }else
-        {
-            
-            db.canJoinGame(gameId: gID, onComplete:
-                {
-                    canJoin in
-                    
-                    if (canJoin)
-                    {
-                        globalVars.gameID = gID
-                        
-                        let playerId = self.db.createNewPlayer(gameId: gID, nickname:globalVars.username );
-                        
-                        globalVars.playerID = playerId
-                        
-                        
-                        chk = true
-                        print("chk true done:")
-                        print(chk)
-    
-                    }
-                    else {
-                        let infoAlert = UIAlertController(title: "Game ID is not valid!", message: "Enter Game ID Properly.", preferredStyle: .alert)
-                        
-                        infoAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                        
-                        self.present(infoAlert, animated: true, completion: nil)
-                        
-                        chk = false
-                        print("chk false done:")
-                        print(chk)
-                    }
-                    
-            })
-            print("final print")
-            print(chk)
-            return chk
+            return;
         }
         
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let dest = segue.destination as! gameQuestions
-        
-        dest.gameID = gameID.text!
-        dest.username = self.username
-        
-    }
-    
+        db.canJoinGame(gameId: gameId, onComplete:
+        {
+            canJoin in
+            
+            if (canJoin)
+            {
+                self.db.gameId = gameId;
+                self.db.createNewPlayer(gameId: gameId, nickname: self.db.playerName);
+                
+                Utils.goTo(controller: self, viewId: "waiting");
+            }
+            else
+            {
+                let infoAlert = UIAlertController(title: "Game ID is not valid!", message: "Enter Game ID Properly.", preferredStyle: .alert)
 
+                infoAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(infoAlert, animated: true, completion: nil);
+            }
+        });
+    }
 }
