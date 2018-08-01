@@ -51,7 +51,6 @@ class serverQuestion: UIViewController
             print("Seconds " , seconds)
             let timeProgress = Float(Float((10 - Float(seconds))/10))
             print("Progress Sec " , timeProgress)
-            
             timerProgress.progress = timeProgress
          }
         else if (seconds == 0) {

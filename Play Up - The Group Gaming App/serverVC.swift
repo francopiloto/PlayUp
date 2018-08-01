@@ -14,6 +14,8 @@ class serverVC: UIViewController
     @IBOutlet weak var playerList: UITextView!
     @IBAction func backButton(_ sender: UIButton) {
         
+        
+        
         let welcomeSB: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let welcomeVC = welcomeSB.instantiateViewController(withIdentifier: "HomePage")
         self.present(welcomeVC, animated: true)

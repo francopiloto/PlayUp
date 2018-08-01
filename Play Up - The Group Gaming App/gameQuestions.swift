@@ -12,6 +12,10 @@ class gameQuestions: UIViewController
 {
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var gameIDLbl: UILabel!
+    @IBOutlet weak var optionA: UIButton!
+    @IBOutlet weak var optionB: UIButton!
+    @IBOutlet weak var optionC: UIButton!
+    @IBOutlet weak var optionD: UIButton!
     
     private let db = GameDatabase.getInstance();
     
@@ -64,6 +68,7 @@ class gameQuestions: UIViewController
             });
         }
         
+        disableAllButtons(btnTag: sender.tag)
         // TODO disable options
     }
     
@@ -82,5 +87,31 @@ class gameQuestions: UIViewController
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer),
                                               userInfo: nil, repeats: true);
         });
+    }
+    
+    func disableAllButtons(btnTag: Int) {
+
+        if (btnTag == 1)
+        {
+            optionA.backgroundColor = UIColor.brown
+        }
+        else if (btnTag == 1)
+        {
+            optionB.backgroundColor = UIColor.brown
+        }
+        else if (btnTag == 1)
+        {
+            optionC.backgroundColor = UIColor.brown
+        }
+        else
+        {
+            optionD.backgroundColor = UIColor.brown
+        }
+        
+        optionA.isEnabled = false;
+        optionB.isEnabled = false
+        optionC.isEnabled = false;
+        optionD.isEnabled = false
+        
     }
 }
