@@ -122,10 +122,7 @@ class GameDatabase
      */
     func watchForGameStatusChange(onStatusChanged:@escaping (String)->Void)
     {
-        if let handle = statusHandle {
-            db.removeObserver(withHandle: handle);
-        }
-        
+        stopWatchForStatusChange();
         let status = db.child("games").child(gameId).child("status");
         
         status.observe(DataEventType.value, with:
@@ -133,6 +130,15 @@ class GameDatabase
             status in
             onStatusChanged(status.value as! String);
         });
+    }
+    
+/* --------------------------------------------------------------------------------------------- */
+    
+    func stopWatchForStatusChange()
+    {
+        if let handle = statusHandle {
+            db.removeObserver(withHandle: handle);
+        }
     }
     
 /* --------------------------------------------------------------------------------------------- */
@@ -147,7 +153,8 @@ class GameDatabase
         playerNode.observeSingleEvent(of: DataEventType.value, with:
         {
             player in
-            onComplete(Player(name: player.childSnapshot(forPath: "name").value as! String,
+            onComplete(Player(id: player.key,
+                              name: player.childSnapshot(forPath: "name").value as! String,
                               scores: player.childSnapshot(forPath: "scores").value as! Int,
                               position: player.childSnapshot(forPath: "position").value as! Int));
         });
@@ -158,7 +165,7 @@ class GameDatabase
     /**
      * Get information about all players
      */
-    func getPlayers(gameId:String, onComplete:@escaping ([Player])->Void)
+    func getPlayers(onComplete:@escaping ([Player])->Void)
     {
         let playersNode = db.child("games").child(gameId).child("players");
         
@@ -171,7 +178,8 @@ class GameDatabase
             
             while let player = enumerator.nextObject() as? DataSnapshot
             {
-                playersArray.append(Player(name: player.childSnapshot(forPath: "name").value as! String,
+                playersArray.append(Player(id: player.key,
+                                           name: player.childSnapshot(forPath: "name").value as! String,
                                            scores: player.childSnapshot(forPath: "scores").value as! Int,
                                            position: player.childSnapshot(forPath: "position").value as! Int));
             }
@@ -185,9 +193,9 @@ class GameDatabase
     /**
      * Update information about an specific player
      */
-    func updatePlayer(playerId:String, player:Player)
+    func updatePlayer(_ player:Player)
     {
-        let playerNode = db.child("games").child(gameId).child("players").child(playerId);
+        let playerNode = db.child("games").child(gameId).child("players").child(player.id);
         
         playerNode.child("name").setValue(player.name);
         playerNode.child("scores").setValue(player.scores);
@@ -248,20 +256,24 @@ class GameDatabase
 
 class Player
 {
+    var id:String;
     var name:String;
     var scores = 0;
     var position = 1;
     
 /* --------------------------------------------------------------------------------------------- */
     
-    init(name:String) {
+    init(id:String, name:String)
+    {
+        self.id = id;
         self.name = name;
     }
     
 /* --------------------------------------------------------------------------------------------- */
     
-    init(name:String, scores:Int, position:Int)
+    init(id:String, name:String, scores:Int, position:Int)
     {
+        self.id = id;
         self.name = name;
         self.scores = scores;
         self.position = position;

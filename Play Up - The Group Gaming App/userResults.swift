@@ -8,44 +8,31 @@
 
 import UIKit
 
-class userResults: UIViewController {
-
+class userResults: UIViewController
+{
     @IBOutlet weak var userName: UILabel!
-    
     @IBOutlet weak var gameID: UILabel!
-    
     @IBOutlet weak var scores: UILabel!
-    
     @IBOutlet weak var resultPosition: UILabel!
     
+    private let db = GameDatabase.getInstance();
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        userName.text = globalVars.username
+        userName.text = db.playerName;
+        gameID.text = db.gameId;
         
-        gameID.text = globalVars.gameID
-        
-        scores.text = String(globalVars.scores)
-        
-        
-        // Do any additional setup after loading the view.
+        db.getPlayer(onComplete:
+        {
+            player in
+            self.scores.text = "\(player.scores)";
+            self.resultPosition.text = "\(player.position)";
+        });
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning();
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

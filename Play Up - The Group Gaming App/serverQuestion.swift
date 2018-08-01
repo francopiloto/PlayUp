@@ -70,9 +70,7 @@ class serverQuestion: UIViewController
         }
         else
         {
-            db.setStatus("done");
-            timer?.invalidate();
-            
+            timer?.invalidate();            
             Utils.goTo(controller: self, viewId: "gameResult");
         }
     }

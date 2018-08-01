@@ -41,6 +41,7 @@ class gameQuestions: UIViewController
             else if status == "done"
             {
                 self.timer?.invalidate();
+                self.db.stopWatchForStatusChange();
                 Utils.goTo(controller: self, viewId: "userResults");
             }
         });
@@ -59,7 +60,7 @@ class gameQuestions: UIViewController
                 player in
                 player.scores += Int(round(1000 * ( 1 - ((self.seconds / GameDatabase.QUESTION_TIME_SECS ) / 2))));
                 
-                self.db.updatePlayer(playerId: self.db.playerId, player: player);
+                self.db.updatePlayer(player);
             });
         }
     }
