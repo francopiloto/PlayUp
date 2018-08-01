@@ -23,7 +23,6 @@ class WaitingViewController: UIViewController
             if (status == "ready")
             {
                 self.db.stopWatchingForStatusChange();
-                print("PLAYER READYYYYYYYYYY");
                 Utils.goTo(controller: self, viewId: "playerReady");
             }
         });

@@ -101,7 +101,9 @@ class GameDatabase
     func watchForNewPlayers(onPlayerAdded:@escaping (String)->Void)
     {
         let players = db.child("games").child(gameId).child("players");
-            
+        
+        stopWatchingForNewPlayers();
+        
         playersHandle = players.observe(DataEventType.childAdded, with:
         {
             player in
@@ -113,8 +115,11 @@ class GameDatabase
     
     func stopWatchingForNewPlayers()
     {
-        if let handle = playersHandle {
-            db.removeObserver(withHandle: handle);
+        if playersHandle != nil
+        {
+            let players = db.child("games").child(gameId).child("players");
+            players.removeObserver(withHandle: playersHandle!);
+            playersHandle = nil;
         }
     }
     
@@ -140,8 +145,11 @@ class GameDatabase
     
     func stopWatchingForStatusChange()
     {
-        if let handle = statusHandle {
-            db.removeObserver(withHandle: handle);
+        if statusHandle != nil
+        {
+            let status = db.child("games").child(gameId).child("status");
+            status.removeObserver(withHandle: statusHandle!);
+            statusHandle = nil;
         }
     }
     

@@ -23,8 +23,6 @@ class PlayerReadyViewController: UIViewController
             if (status != "ready")
             {
                 self.db.stopWatchingForStatusChange();
-                
-                print("AAAAAAAAAAAAAAAAAA");
                 Utils.goTo(controller: self, viewId: "gameQuestions");
             }
         });
