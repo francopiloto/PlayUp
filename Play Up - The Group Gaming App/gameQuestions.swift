@@ -68,8 +68,7 @@ class gameQuestions: UIViewController
             });
         }
         
-        disableAllButtons(btnTag: sender.tag)
-        // TODO disable options
+        disableAllButtons(btnTag: sender.tag);
     }
     
     @objc private func updateTimer() {
@@ -89,29 +88,25 @@ class gameQuestions: UIViewController
         });
     }
     
-    func disableAllButtons(btnTag: Int) {
-
-        if (btnTag == 1)
+    func disableAllButtons(btnTag: Int)
+    {
+        var selectedOption : UIButton?;
+        
+        switch (btnTag)
         {
-            optionA.backgroundColor = UIColor.brown
+            case 0: selectedOption = optionA; break;
+            case 1: selectedOption = optionB; break;
+            case 2: selectedOption = optionC; break;
+            case 3: selectedOption = optionD; break;
+            
+            default: break;
         }
-        else if (btnTag == 1)
-        {
-            optionB.backgroundColor = UIColor.brown
-        }
-        else if (btnTag == 1)
-        {
-            optionC.backgroundColor = UIColor.brown
-        }
-        else
-        {
-            optionD.backgroundColor = UIColor.brown
-        }
+        
+        selectedOption?.backgroundColor = UIColor.brown;
         
         optionA.isEnabled = false;
-        optionB.isEnabled = false
+        optionB.isEnabled = false;
         optionC.isEnabled = false;
-        optionD.isEnabled = false
-        
+        optionD.isEnabled = false;
     }
 }

@@ -619,8 +619,8 @@
                         <outlet property="gameIDLbl" destination="kjt-kX-4lR" id="oZA-6H-5nE"/>
                         <outlet property="optionA" destination="Meb-mn-TYs" id="HYK-td-GyS"/>
                         <outlet property="optionB" destination="AzO-yx-5Ye" id="IFm-5m-Gah"/>
+                        <outlet property="optionC" destination="v7h-JR-BlE" id="rbp-uj-mrU"/>
                         <outlet property="optionD" destination="72Y-6n-2rG" id="rsZ-5Q-Ypo"/>
-                        <outlet property="optionc" destination="v7h-JR-BlE" id="bjE-6s-yzd"/>
                         <outlet property="usernameLbl" destination="5rO-sx-5nk" id="Yqv-du-whA"/>
                     </connections>
                 </viewController>

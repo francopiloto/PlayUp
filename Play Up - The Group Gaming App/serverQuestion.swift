@@ -48,14 +48,15 @@ class serverQuestion: UIViewController
             // Update UI
             timeRemains.text = String(format:"00:%02i", Int(seconds));
             
-            print("Seconds " , seconds)
             let timeProgress = Float(Float((10 - Float(seconds))/10))
-            print("Progress Sec " , timeProgress)
             timerProgress.progress = timeProgress
-         }
-        else if (seconds == 0) {
+        }
+        else if (seconds == 0)
+        {
             timerProgress.progress = 1
-            nextQuestion();
+            
+            timer?.invalidate();
+            Utils.goTo(controller: self, viewId: db.currentQuestion < db.numberOfQuestions ? "serverReady" : "gameResult");
         }
     }
     
