@@ -12,6 +12,8 @@ class gameResult: UIViewController
 {
     private let db = GameDatabase.getInstance();
     
+    @IBOutlet weak var gameResult: UITextView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad();
@@ -21,11 +23,20 @@ class gameResult: UIViewController
             players in
             let sortedPlayers = players.sorted(by: { $0.scores > $1.scores });
             var position = 1;
-            
+            self.gameResult.text = "Final Result\n"
             for player in sortedPlayers
             {
                 player.position = position;
                 self.db.updatePlayer(player);
+                print("Player Ranking")
+                print(player.name)
+                print(player.scores)
+                print(player.position)
+                self.gameResult.insertText("Player: ")
+                self.gameResult.insertText(player.name)
+                self.gameResult.insertText("  Position: ")
+                self.gameResult.insertText(String(player.position))
+                self.gameResult.insertText(" \n ----------------------- \n")
                 
                 position += 1;
                 

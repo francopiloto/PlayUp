@@ -182,7 +182,7 @@ class GameDatabase
         let playersNode = db.child("games").child(gameId).child("players");
         
         playersNode.observeSingleEvent(of: DataEventType.value, with:
-        {
+        {	
             players in
             
             var playersArray : [Player] = [];
